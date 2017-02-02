@@ -6,3 +6,13 @@ export const addTodo = (text) => ({
     id: nextTodoId++,
     text
 });
+
+export const toggleTodo = (id) => ({
+    type: ActionTypes.TOGGLE_TODO,
+    id
+});
+
+export const setVisibilityFilter = (filter) => ({
+    type: ActionTypes.SET_VISIBILITY_FILTER,
+    filter
+});

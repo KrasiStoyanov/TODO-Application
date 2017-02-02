@@ -1,15 +1,16 @@
 import React, { PropTypes } from 'react';
+import TodoItem from './TodoItem';
 
-const TodoList = ({ todos }) => (
+const TodoList = ({ todos, onTodoClick }) => (
     <div className="container">
         <div className="row">
             <div className="col-md-6">
                 <div className="list-group">
                     {todos.map(todo => 
-                        <a 
+                        <TodoItem 
                         key={todo.id} 
-                        href="#" 
-                        className="list-group-item list-group-item-action">{todo.text}</a>
+                        {...todo}
+                        onClick={() => onTodoClick(todo.id)}/>
                     )}
                 </div>
             </div>
@@ -22,7 +23,8 @@ TodoList.propTypes = {
         id: PropTypes.number.isRequired,
         completed: PropTypes.bool.isRequired,
         text: PropTypes.string.isRequired
-    })).isRequired
+    })).isRequired,
+    onTodoClick: PropTypes.func.isRequired
 };
 
 export default TodoList;
