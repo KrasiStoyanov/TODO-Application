@@ -1,6 +1,14 @@
 # TODO-Application
 Example TODO Application project for practicing React and Redux.
 
+## Starting The Application
+
+Firstly, go into to the main directory of the project and run<br>
+### `npm install`
+
+Then just type<br>
+### `npm start`
+
 ## Available Scripts
 
 In the project directory, you can run:
