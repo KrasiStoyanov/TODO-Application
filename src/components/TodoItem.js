@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const TodoItem = ({ onTodoToggle, onTodoRemove, completed, text }) => (
-    <li className="list-group-item">
+    <li className="rounded mb-4 mt-4">
         <span className="p-2">{text}</span>
         <a 
          href="#" 

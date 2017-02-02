@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 import TodoItem from './TodoItem';
 
 const TodoList = ({ todos, onTodoClick, onTodoRemove }) => (
-    <div className="container">
-        <div className="row">
+    <div className="container pt-4 pb-4">
+        <div className="row justify-content-md-center">
             <div className="col-md-6">
-                <div className="list-group">
+                <ul>
                     {todos.map(todo => 
                         <TodoItem 
                          key={todo.id} 
@@ -13,7 +13,7 @@ const TodoList = ({ todos, onTodoClick, onTodoRemove }) => (
                          onTodoToggle={() => onTodoClick(todo.id)} 
                          onTodoRemove={() => onTodoRemove(todo.id)}/>
                     )}
-                </div>
+                </ul>
             </div>
         </div>
     </div>

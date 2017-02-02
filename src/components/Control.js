@@ -4,7 +4,7 @@ const Control = ({ active, children, onControlClick }) => (
     <button
      type="button" 
      role="button" 
-     className={"btn btn-primary " + (active ? "disabled" : "")} 
+     className={"btn btn-outline-primary rounded " + (active ? "disabled" : "")} 
      onClick={onControlClick}>{children}</button>
 );
 
