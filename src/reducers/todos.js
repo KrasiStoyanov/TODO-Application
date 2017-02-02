@@ -31,6 +31,8 @@ const todos = (state = [], action) => {
             ];
         case ActionTypes.TOGGLE_TODO:
             return state.map(t => todo(t, action));
+        case ActionTypes.REMOVE_TODO:
+            return state.filter(t => t.id !== action.id);
         default:
             return state;
     }

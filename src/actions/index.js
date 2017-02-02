@@ -12,6 +12,11 @@ export const toggleTodo = (id) => ({
     id
 });
 
+export const removeTodo = (id) => ({
+    type: ActionTypes.REMOVE_TODO,
+    id
+});
+
 export const setVisibilityFilter = (filter) => ({
     type: ActionTypes.SET_VISIBILITY_FILTER,
     filter

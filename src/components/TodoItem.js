@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const TodoItem = ({ onClick, completed, text }) => (
+const TodoItem = ({ onTodoToggle, onTodoRemove, completed, text }) => (
     <li className="list-group-item">
         <span className="p-2">{text}</span>
         <a 
@@ -8,15 +8,25 @@ const TodoItem = ({ onClick, completed, text }) => (
          className="p-2" 
          onClick={e => {
             e.preventDefault();
-            onClick();
+            onTodoToggle();
          }}>
             <i className={"fa " + (completed ? "fa-remove" : "fa-check")}></i>
+        </a>
+         <a 
+         href="#" 
+         className="p-2" 
+         onClick={e => {
+            e.preventDefault();
+            onTodoRemove();
+         }}>
+            <i className="fa fa-trash-o"></i>
         </a>
     </li>
 );
 
 TodoItem.propTypes = {
-    onClick: PropTypes.func.isRequired,
+    onTodoToggle: PropTypes.func.isRequired,
+    onTodoRemove: PropTypes.func.isRequired,
     completed: PropTypes.bool.isRequired,
     text: PropTypes.string.isRequired
 }
