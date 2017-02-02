@@ -1,10 +1,36 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../actions';
 
-const AddTodo = () => (
-    <div className="form-inline">
-        <input type="text" className="form-control"/>
-        <button type="button" role="button" className="btn btn-primary">Add Todo</button>
-    </div>
-);
+let AddTodo = ({ dispatch }) => {
+    let input;
+
+    return (
+        <form 
+         className="form-inline"
+         onSubmit={e => {
+             e.preventDefault();
+             if (!input.value.trim()) {
+                 return;
+             }
+
+             dispatch(addTodo(input.value));
+             input.value = '';
+         }}>
+            <input 
+            type="text" 
+            className="form-control" 
+            ref={node => {
+                input = node;
+            }} />
+            <button 
+             type="submit" 
+             role="button" 
+             className="btn btn-primary">Add Todo</button>
+        </form>
+    );
+};
+
+AddTodo = connect()(AddTodo);
 
 export default AddTodo;
