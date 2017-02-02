@@ -1,12 +1,18 @@
 import React, { PropTypes } from 'react';
 
 const TodoItem = ({ onClick, completed, text }) => (
-    <a  
-     href="#" 
-     className={
-         "list-group-item list-group-item-action " + (completed ? 'active' : '')
-     }
-     onClick={onClick}>{text}</a>
+    <li className="list-group-item">
+        <span className="p-2">{text}</span>
+        <a 
+         href="#" 
+         className="p-2" 
+         onClick={e => {
+            e.preventDefault();
+            onClick();
+         }}>
+            <i className={"fa " + (completed ? "fa-remove" : "fa-check")}></i>
+        </a>
+    </li>
 );
 
 TodoItem.propTypes = {
